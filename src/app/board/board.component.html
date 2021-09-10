@@ -1,0 +1,8 @@
+<div
+  *ngFor="let cell of board; let num = index"
+  class="cell player{{ checkPlayer(num) }}"
+  (click)="cellClick.emit(num)"
+>
+  {{ cell }}
+  <div *ngIf="showCellNums" class="cell-num">{{ num }}</div>
+</div>

@@ -1,0 +1,31 @@
+<div *ngIf="playButton" style="background-color:bisque;text-align: center;height:95vh;width:100%">
+  <h1 style="font-size: 50px;margin-top:200px;">Tic-Tac-Toe</h1>
+  <button style="background-color:cadetblue;height:50px;width:250px;font-size: 20px;" (click)="resetGame()">Let's Play</button>
+</div>
+
+<div *ngIf="!playButton">
+  <div style="background-color:bisque;text-align: center;">
+    <h1 style="font-size: 50px;">Tic-Tac-Toe</h1>
+
+    <br>
+    <h3 class="info-line" *ngIf="!!winner">
+      <span class="player{{ currPlayerNumber() }}">{{ winner }}</span> Wins!
+    </h3>
+    <br>
+    <br>
+    <h3 class="info-line" *ngIf="draw" style="font-size: 30px;">It's a Draw!</h3>
+    <br>
+    <br>
+    <app-board [board]="board" [players]="[player1, player2]" (cellClick)="onCellFunc($event)"></app-board>
+
+
+  </div>
+  <div style="display: flex; justify-content: center;">
+  <h3 class="info-line">
+    Next player: <span class="player{{ currPlayerNumber() }}">{{ currPlayer }}</span>
+  </h3>
+</div>
+  <div style="display: flex; justify-content: center;">
+    <button style="background-color:cadetblue;height:50px;width:250px;font-size: 20px;"(click)="resetGame()">Reset Game</button>
+  </div>
+</div>
